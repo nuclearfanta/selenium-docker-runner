@@ -16,12 +16,13 @@ pipeline{
                 bat "docker-compose up book-flight-module search-module"
             }   
         }
+    }
         post{
             always{
                 archiveArtifacts artifacts: 'output/**'
                 bat "docker-compose down"
             }
         }
-    }
+    
 
 }
