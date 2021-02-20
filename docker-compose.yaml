@@ -4,7 +4,6 @@ services:
     image: selenium/hub:3.14
   chrome:
     image: selenium/node-chrome:3.14
-    shm_size: '1gb'
     depends_on:
       - hub
     environment:
@@ -25,7 +24,7 @@ services:
       - HUB_HOST=hub
       - MODULE=search-module.xml
     volumes:
-      - ./search-result:/usr/share/udemy/test-output
+      - ./output/search-result:/usr/share/udemy/test-output
   book-flight-module:
     image: nuclearfanta/selenium-docker
     environment:
@@ -33,4 +32,4 @@ services:
       - HUB_HOST=hub
       - MODULE=book-flight-module.xml
     volumes:
-    - ./book-result:/usr/share/udemy/test-output
+    - ./output/book-result:/usr/share/udemy/test-output
